@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# 🍙 Whatnyang(왔냥)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 📢 프로젝트 소개
 
-In the project directory, you can run:
+지금 핫한 장소는 어디?<br>
+지도검색 웹사이트 “왔냥” 입니다.<br>
+마음에 드는 장소는 북마크로 저장하고 다른 유저들의 후기도 실시간으로 함께 만나보실 수 있습니다.
 
-### `yarn start`
+## 📢 탁쿠의 식탁 주요 기능
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 가고 싶은 장소 검색
+- 업체정보 및 위치와 스카이뷰
+- 실시간 리뷰
+- 마음에 드는 장소 북마크 저장
+- 마이페이지에서 내가 찜한 북마크 장소 조회, 내 리뷰 한눈에 보기
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📝 프로젝트 아키텍처
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 STACK
 
-### `yarn build`
+- **프론트엔드 :** React, typescript, react-query, kakaomap api
+- **DB관리(백엔드) :** NoSQL방식인 firebase를 이용
+- **협력툴 :** 깃, 깃허브, 슬랙, 노션
+- **배포** : vercel
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 DEV-Tool
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+| 사용 기술       | 기술 설명                                                                                                                                                                                                                               |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| React        | 컴포넌트 단위의 개발로 재사용성을 높이고, 페이지 전체를 렌더링하지 않고 필요한 부분만 그때그때 렌더링하여 트래픽 총량을 줄여 주는 장점에 주목하여 선택했습니다.                                                                                |
+| typescript      | 코드에 목적을 명시하고 목적에 맞지 않는 타입의 변수나 함수들에서 에러를 발생시켜 버그를 사전에 제거할 수 있으며, 또한 코드 자동완성이나 실행 전 피드백을 제공하여 작업과 동시에 디버깅이 가능해 생산성을 높일 수 있어 사용했습니다.     |
+| react-query     | 데이터를 최신 상태로 유지하고 캐싱처리를 위해 사용했습니다.      |
+| firebase        | 백엔드에서 구현이 필요한 로그인,회원가입 DB를 콘솔로 쉽게 확인 가능하여 사용했습니다.                                              
