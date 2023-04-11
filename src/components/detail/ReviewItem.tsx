@@ -29,6 +29,49 @@ const ReviewItem = () => {
     const [editText, setEditText] = useState("");
     const [selectedItem, setSelectedItem] = useState();
 
+    // 삭제
+    const deleteReview = (id: string) => {
+        return deleteDoc(doc(dbService, "reviews", id));
+    };
+    const deleteMutation = useMutation(deleteReview, {
+        onSuccess: () => {
+            queryClient.invalidateQueries("reviews");
+        },
+        onError: (error) => {
+            console.log(error);
+        },
+    });
+    const handleDeleteBtn = (id: string) => {
+        deleteMutation.mutate(id);
+    };
+
+    // 수정
+    const editButtonHandler = function (item: any) {
+        setSelectedItem(item);
+        setIsEdit(!isEdit);
+    };
+
+    const onChangeText = function (e: any) {
+        setEditText(e.target.value);
+    };
+
+    const editReview = (id: string) => {
+        return updateDoc(doc(dbService, "reviews", id), {
+            contents: editText,
+        });
+    };
+    const editMutation = useMutation(editReview, {
+        onSuccess: () => {
+            queryClient.invalidateQueries("reviews");
+        },
+        onError: (error) => {
+            console.log(error);
+        },
+    });
+    const finishedEditBtn = (id: string) => {
+        editMutation.mutate(id);
+    };
+
     useEffect(() => {
         const q = query(
             collection(dbService, "reviews"),
@@ -44,36 +87,6 @@ const ReviewItem = () => {
         });
         return unsubscribe;
     }, [item.id]);
-
-    const deleteReview = (id: string) => {
-        return deleteDoc(doc(dbService, "reviews", id));
-    };
-    const mutation = useMutation(deleteReview, {
-        onSuccess: () => {
-            queryClient.invalidateQueries("reviews");
-        },
-        onError: (error) => {
-            console.log(error);
-        },
-    });
-    const handleDeleteBtn = (id: string) => {
-        mutation.mutate(id);
-    };
-
-    const editButtonHandler = function (item: any) {
-        setSelectedItem(item);
-        setIsEdit(!isEdit);
-    };
-
-    const onChangeText = function (e: any) {
-        setEditText(e.target.value);
-    };
-
-    const editReview = async (id: string) => {
-        await updateDoc(doc(dbService, "reviews", id), {
-            contents: editText,
-        });
-    };
 
     return (
         <>
@@ -138,7 +151,7 @@ const ReviewItem = () => {
                                             <ReviewEditBtn
                                                 style={{ marginRight: "2px" }}
                                                 onClick={() => {
-                                                    editReview(item.id);
+                                                    finishedEditBtn(item.id);
                                                     setIsEdit(false);
                                                 }}
                                             >
